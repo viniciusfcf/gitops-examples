@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-app-name-cm
+  namespace: my-namespace
+data:
+  # property-like keys; each key maps to a simple value
+  APP_CUSTOM_MESSAGE: " Dev "

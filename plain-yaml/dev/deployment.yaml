@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app-name-dep
+  namespace: my-namespace
+spec:
+  selector:
+    matchLabels:
+      run: my-app-name
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: my-app-name
+    spec:
+      containers:
+      - name: my-app-name
+        image: registry.k8s.io/hpa-example
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            cpu: 500m
+          requests:
+            cpu: 200m
+
+
+# dentro de containers
+# health check tambem
+#envFrom:
+  
+#      - configMapRef:
+# 
+#          name: special-config
+#
+#
+#
