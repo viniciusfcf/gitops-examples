@@ -1,6 +1,6 @@
 # gitops-examples
 
-Complete examples using CRD, Charts and Kustomize.
+Complete examples using CRD, Charts (TODO) and Kustomize (TODO).
 
 This repository assumes you're using Argo CD.
 
@@ -12,4 +12,4 @@ Separação dos ambientes por pasta (dev/qa/prod)
 
 Como fazer configurar ambiente no OpenShift
 
-Como configurar ambiente no kubernetes
+Como configurar ambiente no OpenShift
