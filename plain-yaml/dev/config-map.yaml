@@ -1,8 +1,9 @@
+# The best option (in my opnion) however does not redeploy after configMap updates.
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: my-app-name-cm
   namespace: my-app-namespace
 data:
-  # property-like keys; each key maps to a simple value
+  # overrided by deployment env variable
   QUARKUS_APP_CUSTOM_MESSAGE: "Hello from <<CONFIG_MAP>>."
