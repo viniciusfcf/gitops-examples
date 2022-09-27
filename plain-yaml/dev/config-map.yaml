@@ -3,7 +3,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: my-app-name-cm
-  namespace: my-app-namespace
+  namespace: my-app-ns
 data:
   # overrided by deployment env variable
   QUARKUS_APP_CUSTOM_MESSAGE: "Hello from <<CONFIG_MAP>>."

@@ -31,10 +31,6 @@ Colocar aqui uma tabela com a estrutura geral do repositório
 
 Separação dos ambientes por pasta (dev/qa/prod)
 
-health check tambem
-
-Colocar em um GIT em memória?!!
-
 # Installing ArgoCD
 
 
@@ -71,5 +67,18 @@ create application in ArgoCD
 oc create -f env/argocd-app-plain-yaml.yaml
 ```
 
-# Pros e Con
-1. plain-yaml does not update deployment if configmap is updated
+Print Route
+```
+APP_HOST=$(oc get route my-app-name-route -n my-app-ns -o jsonpath='{.spec.host}')
+```
+
+Call endpoint
+```
+curl $APP_HOST/hello
+```
+
+# Pros e Cons
+
+## plain-yaml 
+* Does not update deployment if configmap is updated
+* So many files, worst, `yamls` files

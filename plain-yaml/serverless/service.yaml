@@ -1,14 +1,21 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: autoscale-go
-  namespace: my-app-namespace
+  name: my-app-serverless
+  namespace: my-app-ns
 spec:
   template:
     metadata:
       annotations:
-        # Target 10 in-flight-requests per pod.
-        autoscaling.knative.dev/target: "10"
+        autoscaling.knative.dev/class: kpa.autoscaling.knative.dev
+        # just to work like hpa.yaml example, is not a recomendation
+        autoscaling.knative.dev/metric: cpu
+        autoscaling.knative.dev/target: "50"
+        autoscaling.knative.dev/max-scale: "10"
+        # Knative concurrency-based autoscaling (default).
+        #autoscaling.knative.dev/metric: concurrency
+        # Target 10 requests in-flight per pod.
+        #autoscaling.knative.dev/target: "10"
     spec:
       containers:
-      - image: gcr.io/knative-samples/autoscale-go:0.1
+      - image: viniciusfcf/gitops-quarkus-app-jvm
