@@ -6,4 +6,4 @@ metadata:
   namespace: my-app-ns
 data:
   # overrided by deployment env variable
-  QUARKUS_APP_CUSTOM_MESSAGE: "Hello from <<CONFIG_MAP>>."
+  QUARKUS_APP_CUSTOM_MESSAGE: "Hello from <<CONFIG_MAP>>!"
