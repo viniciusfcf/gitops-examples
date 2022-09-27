@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     directory:
-      recurse: true
+      recurse: false
     path: kustomize/overlays/dev
     repoURL: https://github.com/viniciusfcf/gitops-examples.git
     targetRevision: main
