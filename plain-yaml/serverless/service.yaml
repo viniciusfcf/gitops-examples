@@ -17,3 +17,11 @@ spec:
     spec:
       containers:
       - image: viniciusfcf/gitops-quarkus-app-jvm
+        # The best option (in my opnion) however does not redeploy after configMap updates.
+        envFrom:
+        - configMapRef:
+            name: my-app-name-serverless-cm
+        # Same ConfigMap env variable, however any change here will redeploythe application, as expected
+        env:
+        - name: QUARKUS_APP_CUSTOM_MESSAGE
+          value: "Hello from KService env."
