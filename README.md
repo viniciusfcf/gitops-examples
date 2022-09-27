@@ -16,10 +16,13 @@ Como configurar ambiente no OpenShift
 
 health check tambem
 
+Colocar em um GIT em memória?!!
+
 # Prerequisites
 
-The examples contained in this section require,
+The examples contained in this section require.
 
+* Openshift >= 4.10
 * the [oc](https://access.redhat.com/downloads/content/290) OpenShift client command-line tool
 * a [kubeconfig](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) file for an existing OpenShift cluster (default location is `~/.kube/config`)
 * the [argocd](https://github.com/argoproj/argo-cd/releases/latest) command-line tool
@@ -36,3 +39,6 @@ extract admin password
 1. ```oc -n openshift-gitops extract secret/openshift-gitops-cluster --to=-```
 create application in ArgoCD
 ```oc create -f env/argocd-app-plain-yaml.yaml```
+
+# Pros e Con
+1. plain-yaml does not update deployment if configmap is updated
