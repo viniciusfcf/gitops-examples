@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-app-name-dep
+  name: my-app-name-dep2
   namespace: my-app-ns
   labels:
     app.openshift.io/runtime: quarkus
