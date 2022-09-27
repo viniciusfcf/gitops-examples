@@ -7,6 +7,10 @@ namespace: my-app-ns-dev
 resources:
 - ../../base
 
-
 commonLabels:
   env: dev
+
+configMapGenerator:
+- name: my-app-name-cm
+  files:
+  - config-map.conf
