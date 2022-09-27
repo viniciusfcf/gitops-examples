@@ -1,0 +1,12 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: my-app-name-route
+  namespace: my-app-namespace
+spec:
+  host: my-app-name-openshift.<Ingress_Domain> 
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: my-app-name-svc

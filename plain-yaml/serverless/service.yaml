@@ -2,7 +2,7 @@ apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
   name: autoscale-go
-  namespace: my-namespace
+  namespace: my-app-namespace
 spec:
   template:
     metadata:
