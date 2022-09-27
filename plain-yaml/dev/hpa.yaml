@@ -7,7 +7,7 @@ spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: my-app-name
+    name: my-app-name-dep
   minReplicas: 1
   maxReplicas: 10
   targetCPUUtilizationPercentage: 50
