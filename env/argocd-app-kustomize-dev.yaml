@@ -4,6 +4,9 @@ metadata:
   name: my-app-kustomize-dev
   namespace: openshift-gitops
 spec:
+  destination:
+    namespace: my-app-ns-dev
+    server: https://kubernetes.default.svc
   project: default
   source:
     directory:
