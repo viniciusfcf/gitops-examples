@@ -25,16 +25,5 @@ spec:
             cpu: 200m
         envFrom:
         - configMapRef:
-          name: my-app-name-cm
+            name: my-app-name-cm
 
-
-# dentro de containers
-# health check tambem
-#envFrom:
-  
-#      - configMapRef:
-# 
-#          name: special-config
-#
-#
-#
