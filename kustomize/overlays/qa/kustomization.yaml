@@ -7,6 +7,10 @@ namespace: my-app-ns-qa
 resources:
 - ../../base
 
-
 commonLabels:
   env: qa
+
+configMapGenerator:
+- name: my-app-name-cm
+  envs:
+  - config-map.properties

@@ -9,3 +9,8 @@ resources:
 
 commonLabels:
   env: prd
+
+configMapGenerator:
+- name: my-app-name-cm
+  envs:
+  - config-map.properties

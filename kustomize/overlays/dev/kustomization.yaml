@@ -13,4 +13,4 @@ commonLabels:
 configMapGenerator:
 - name: my-app-name-cm
   envs:
-  - config-map.conf
+  - config-map.properties
