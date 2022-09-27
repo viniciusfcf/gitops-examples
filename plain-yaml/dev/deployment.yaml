@@ -15,9 +15,9 @@ spec:
     spec:
       containers:
       - name: my-app-name
-        image: registry.k8s.io/hpa-example
+        image: viniciusfcf/gitops-quarkus-app-jvm
         ports:
-        - containerPort: 80
+        - containerPort: 8800
         resources:
           limits:
             cpu: 500m
