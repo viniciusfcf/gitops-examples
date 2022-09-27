@@ -1,0 +1,11 @@
+# kustomization.yaml contents
+# https://argo-cd.readthedocs.io/en/stable/user-guide/kustomize/
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: my-app-ns-prd
+
+resources:
+- ../../base
+
+commonLabels:
+  env: prd

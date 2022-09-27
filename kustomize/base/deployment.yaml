@@ -26,14 +26,10 @@ spec:
             cpu: 500m
           requests:
             cpu: 200m
-        # The best option (in my opnion) however does not redeploy after configMap updates.
+        # The best option (in my opinion) and Using kustomize redeploy after configMap updates. /o/
         envFrom:
         - configMapRef:
             name: my-app-name-cm
-        # Same ConfigMap env variable, however any change here will redeploythe application, as expected
-        env:
-        - name: QUARKUS_APP_CUSTOM_MESSAGE
-          value: "Hello from Deployment env."
         livenessProbe:
             failureThreshold: 3
             httpGet:

@@ -1,4 +1,4 @@
-# The best option (in my opnion) however does not redeploy after configMap updates.
+# The best option (in my opinion) however does not redeploy after configMap updates.
 apiVersion: v1
 kind: ConfigMap
 metadata:

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - image: viniciusfcf/gitops-quarkus-app-jvm
-        # The best option (in my opnion) however does not redeploy after configMap updates.
+        # The best option (in my opinion) however does not redeploy after configMap updates.
         envFrom:
         - configMapRef:
             name: my-app-name-serverless-cm
