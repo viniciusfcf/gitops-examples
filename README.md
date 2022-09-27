@@ -52,6 +52,16 @@ oc apply -f env/cluster-role.yaml
 oc apply -f env/cluster-role-binding.yaml
 ```
 
+Install Serverless (KNative) Operator
+```
+oc apply -f env/serverless-operator.yaml
+```
+
+Configure KnativeServing
+```
+oc apply -f env/serverless-serving.yaml
+```
+
 Print ArgoCD route
 ```
 oc get route openshift-gitops-server -n openshift-gitops -o jsonpath='{.spec.host}'
