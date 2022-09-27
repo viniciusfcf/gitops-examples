@@ -5,4 +5,4 @@ metadata:
   namespace: my-app-namespace
 data:
   # property-like keys; each key maps to a simple value
-  QUARKUS-APP_CUSTOM_MESSAGE: "Hello from ConfigMap. DEV env!"
+  QUARKUS_APP_CUSTOM_MESSAGE: "Hello from <<<CONFIG_MAP>>>. DEV env!"
