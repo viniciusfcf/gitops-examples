@@ -7,6 +7,6 @@ metadata:
     run:  my-app-name
 spec:
   ports:
-  - port: 80
+  - port: 8080
   selector:
     run:  my-app-name
