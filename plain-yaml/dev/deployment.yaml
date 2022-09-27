@@ -3,6 +3,8 @@ kind: Deployment
 metadata:
   name: my-app-name-dep
   namespace: my-app-namespace
+  labels:
+    app.openshift.io/runtime: quarkus
 spec:
   selector:
     matchLabels:
@@ -16,14 +18,41 @@ spec:
       containers:
       - name: my-app-name
         image: viniciusfcf/gitops-quarkus-app-jvm
+        imagePullPolicy: Always
         ports:
-        - containerPort: 8800
+        - containerPort: 8080
         resources:
           limits:
             cpu: 500m
           requests:
             cpu: 200m
+        # The best option (in my opnion) however does not redeploy after configMap updates.
         envFrom:
         - configMapRef:
             name: my-app-name-cm
+        # Same ConfigMap env variable, however any change here will redeploythe application, as expected
+        env:
+        - name: QUARKUS_APP_CUSTOM_MESSAGE
+          value: "Hello from Deployment env."
+        livenessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /q/health/live
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 0
+            periodSeconds: 30
+            successThreshold: 1
+            timeoutSeconds: 10
+        readinessProbe:
+            failureThreshold: 3
+            httpGet:
+              path: /q/health/ready
+              port: 8080
+              scheme: HTTP
+            initialDelaySeconds: 0
+            periodSeconds: 30
+            successThreshold: 1
+            timeoutSeconds: 10
+        
 
