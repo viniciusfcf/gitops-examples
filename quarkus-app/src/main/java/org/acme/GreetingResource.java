@@ -10,7 +10,7 @@ import org.eclipse.microprofile.config.inject.ConfigProperty;
 @Path("/hello")
 public class GreetingResource {
 
-    @ConfigProperty(name = "quarkus-app.custom.message")
+    @ConfigProperty(name = "quarkus.app.custom.message")
     String customMessage;
 
     @GET
