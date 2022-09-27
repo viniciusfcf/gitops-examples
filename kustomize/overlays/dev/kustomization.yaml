@@ -12,5 +12,5 @@ commonLabels:
 
 configMapGenerator:
 - name: my-app-name-cm
-  files:
+  envs:
   - config-map.conf
