@@ -1,0 +1,5 @@
+# kustomization.yaml contents
+# https://argo-cd.readthedocs.io/en/stable/user-guide/kustomize/
+resources:
+- ./../base
+namespace: my-app-ns-dev

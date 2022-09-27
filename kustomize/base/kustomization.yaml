@@ -1,0 +1,10 @@
+# kustomization.yaml contents
+# https://argo-cd.readthedocs.io/en/stable/user-guide/kustomize/
+commonLabels:
+  app: my-app-name
+resources:
+- config-map.yaml
+- deployment.yaml
+- hpa.yaml
+- route.yaml
+- service.yaml

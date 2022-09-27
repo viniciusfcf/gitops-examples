@@ -87,6 +87,14 @@ Call endpoint
 curl $APP_HOST/hello
 ```
 
+
+Print Serverless Route
+```
+oc get ksvc my-app-serverless -n my-app-ns
+```
+
+
+
 # Pros e Cons
 
 ## plain-yaml 
