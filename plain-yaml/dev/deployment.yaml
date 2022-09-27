@@ -23,6 +23,9 @@ spec:
             cpu: 500m
           requests:
             cpu: 200m
+        envFrom:
+        - configMapRef:
+          name: my-app-name-cm
 
 
 # dentro de containers
