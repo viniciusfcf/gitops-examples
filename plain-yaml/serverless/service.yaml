@@ -13,8 +13,6 @@ spec:
         # Target 10 requests in-flight per pod.
         autoscaling.knative.dev/target: "10"
         autoscaling.knative.dev/max-scale: "10"
-        labels:
-          app.openshift.io/runtime: quarkus
     spec:
       containers:
       - image: viniciusfcf/gitops-quarkus-app-jvm
