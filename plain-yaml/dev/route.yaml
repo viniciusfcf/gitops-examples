@@ -4,8 +4,6 @@ metadata:
   name: my-app-name-route
   namespace: my-app-namespace
 spec:
-  port:
-    targetPort: 8080
   to:
     kind: Service
     name: my-app-name-svc
