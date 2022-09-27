@@ -8,14 +8,12 @@ spec:
     metadata:
       annotations:
         autoscaling.knative.dev/class: kpa.autoscaling.knative.dev
-        # just to work like hpa.yaml example, is not a recomendation
-        autoscaling.knative.dev/metric: cpu
-        autoscaling.knative.dev/target: "50"
-        autoscaling.knative.dev/max-scale: "10"
         # Knative concurrency-based autoscaling (default).
-        #autoscaling.knative.dev/metric: concurrency
+        autoscaling.knative.dev/metric: concurrency
         # Target 10 requests in-flight per pod.
-        #autoscaling.knative.dev/target: "10"
+        autoscaling.knative.dev/target: "10"
+        autoscaling.knative.dev/max-scale: "10"
+        
     spec:
       containers:
       - image: viniciusfcf/gitops-quarkus-app-jvm
