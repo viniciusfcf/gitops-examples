@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app-kustomize-dev
+  namespace: openshift-gitops
+spec:
+  project: default
+  source:
+    directory:
+      recurse: true
+    path: kustomize/overlays/dev
+    repoURL: https://github.com/viniciusfcf/gitops-examples.git
+    targetRevision: main
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
