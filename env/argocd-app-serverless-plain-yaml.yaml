@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: my-app-serverless
+  name: my-app-serverless-plain-yaml
   namespace: openshift-gitops
 spec:
   destination:
