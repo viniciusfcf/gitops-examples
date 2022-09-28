@@ -72,7 +72,7 @@ Extract ArgoCD admin password
 oc -n openshift-gitops extract secret/openshift-gitops-cluster --to=-
 ```
 
-create application in ArgoCD
+create plain-yaml application in ArgoCD
 ```
 oc create -f env/argocd-app-plain-yaml.yaml
 ```
@@ -87,13 +87,32 @@ Call endpoint
 curl $APP_HOST/hello
 ```
 
-
+## Serverless plain yaml
 Print Serverless Route
 ```
 oc get ksvc my-app-serverless -n my-app-ns
 ```
 
+## Kustomize
 
+
+```
+oc create -f env/argocd-app-kustomize-dev.yaml
+```
+
+```
+oc create -f env/argocd-app-kustomize-qa.yaml
+```
+
+```
+oc create -f env/argocd-app-kustomize-prd.yaml
+```
+
+## Helm chart
+
+```
+oc create -f env/argocd-app-helm.yaml
+```
 
 # Pros e Cons
 
@@ -105,6 +124,9 @@ oc get ksvc my-app-serverless -n my-app-ns
 * Simplifies configuration, mainly with more than one environment to deploy
 * Update deployment if configmap is updated using `configMapGenerator`
 * Think twice before update `base` yamls, they affect all environments.
+  
+## helm
+* Too complex to use with ArgoCD, besides the yaml files in git we have versions of the charts. Sounds like an unnecessary step if you are going to use ArgoCD.
 
 ## Building my helm chart
 
