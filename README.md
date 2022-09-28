@@ -105,3 +105,16 @@ oc get ksvc my-app-serverless -n my-app-ns
 * Simplifies configuration, mainly with more than one environment to deploy
 * Update deployment if configmap is updated using `configMapGenerator`
 * Think twice before update `base` yamls, they affect all environments.
+
+## Building my helm chart
+
+* Create the folder `charts` In my repository `viniciusfcf.github.io`
+* Package (Working dir: `<BASE>/gitops-examples/helm/dev`)
+  ```
+  helm package -d <DIR>/viniciusfcf.github.io/charts .
+  ```
+* Generate `index.yaml` repo file
+  ```
+  helm repo index <DIR>/viniciusfcf.github.io/charts
+  ```
+* Push `index.yaml` and `*.tgz` files to git

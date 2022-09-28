@@ -4,9 +4,9 @@ metadata:
   name: my-app-name-svc
   namespace: my-app-ns
   labels:
-    run:  my-app-name
+    run: my-app-name
 spec:
   ports:
   - port: 8080
   selector:
-    run:  my-app-name
+    run: my-app-name
