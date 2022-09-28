@@ -1,0 +1,9 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: my-app-name-route
+  namespace: my-app-ns
+spec:
+  to:
+    kind: Service
+    name: my-app-name-svc

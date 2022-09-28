@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-app-name-svc
+  namespace: my-app-ns
+  labels:
+    run:  my-app-name
+spec:
+  ports:
+  - port: 8080
+  selector:
+    run:  my-app-name
