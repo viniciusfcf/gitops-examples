@@ -1,0 +1,2 @@
+# The default configuration values for this chart
+namespace: my-app-ns-helm

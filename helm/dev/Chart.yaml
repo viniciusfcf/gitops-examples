@@ -1,3 +1,4 @@
+# A YAML file containing information about the chart
 apiVersion: v1
 name: my-app-name
 version: 0.0.1
