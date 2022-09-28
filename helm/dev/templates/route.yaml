@@ -2,7 +2,7 @@ apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
   name: my-app-name-route
-  namespace: {{namespace}}
+  namespace: {{.Values.namespace}}
 spec:
   to:
     kind: Service

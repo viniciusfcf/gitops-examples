@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app-helm
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: my-app-ns
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    directory:
+      recurse: true
+    path: helm/dev
+    repoURL: https://github.com/viniciusfcf/gitops-examples.git
+    targetRevision: main
+  # Another way using more than templating
+  #source:
+  #  chart: sealed-secrets
+  #  repoURL: https://bitnami-labs.github.io/sealed-secrets
+  #  targetRevision: 1.16.1
+  #  helm:
+  #    releaseName: sealed-secrets
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
