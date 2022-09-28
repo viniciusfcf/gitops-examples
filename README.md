@@ -100,3 +100,8 @@ oc get ksvc my-app-serverless -n my-app-ns
 ## plain-yaml 
 * Does not update deployment if configmap is updated
 * So many files, worst, `yamls` files
+
+## kustomize
+* Simplifies configuration, mainly with more than one environment to deploy
+* Update deployment if configmap is updated using `configMapGenerator`
+* Think twice before update `base` yamls, they affect all environments.
