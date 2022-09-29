@@ -4,7 +4,7 @@ This repository is to share what I had learned in the last weeks about #ArgoCD a
 
 Sugestions are welcome.
 
-Complete examples using CR, Charts (TODO) and Kustomize (TODO).
+Complete examples using CR, Charts and Kustomize.
 
 All examples using Quarkus/MicroProfile application. Simple application that exposes `/hello` with a customizable property `quarkus.app.custom.message`
 - Source code: `quarkus-app` folder in this repository
@@ -22,17 +22,13 @@ The examples contained in this section require.
 | Folder  | Comments |
 | ------------- | ------------- |
 | `env`  | Files to configure OpenShift  |
-| `helm`  | GitOps examples using [Helm Charts](https://helm.sh/docs/topics/charts/)  |
-| `kustomize`  | GitOps examples using [Kustomize](https://kustomize.io/)  |
-| `plain-yaml`  | GitOps examples using managed Custom Resources  |
 | `quarkus-app`  | Quarkus application  |
+| `plain-yaml`  | GitOps examples using managed Custom Resources  |
+| `kustomize`  | GitOps examples using [Kustomize](https://kustomize.io/)  |
+| `helm`  | GitOps examples using [Helm Charts](https://helm.sh/docs/topics/charts/)  |
 
-Colocar aqui uma tabela com a estrutura geral do repositório
-
-Separação dos ambientes por pasta (dev/qa/prod)
 
 # Installing ArgoCD
-
 
 Login into Openshift
 ```
@@ -52,16 +48,6 @@ oc apply -f env/cluster-role.yaml
 oc apply -f env/cluster-role-binding.yaml
 ```
 
-Install Serverless (KNative) Operator
-```
-oc apply -f env/serverless-operator.yaml
-```
-
-Configure KnativeServing
-```
-oc apply -f env/serverless-serving.yaml
-```
-
 Print ArgoCD route
 ```
 oc get route openshift-gitops-server -n openshift-gitops -o jsonpath='{.spec.host}'
@@ -71,6 +57,10 @@ Extract ArgoCD admin password
 ```
 oc -n openshift-gitops extract secret/openshift-gitops-cluster --to=-
 ```
+
+## Adding applications to ArgoCD
+
+### Plain YAML
 
 create plain-yaml application in ArgoCD
 ```
@@ -87,13 +77,29 @@ Call endpoint
 curl $APP_HOST/hello
 ```
 
-## Serverless plain yaml
+### Serverless Plain YAML
+
+Install Serverless (KNative) Operator
+```
+oc apply -f env/serverless-operator.yaml
+```
+
+Configure KnativeServing
+```
+oc apply -f env/serverless-serving.yaml
+```
+
+Create plain-yaml Serverless application in ArgoCD
+```
+oc apply -f env/argocd-app-serverless-plain-yaml.yaml
+```
+
 Print Serverless Route
 ```
 oc get ksvc my-app-serverless -n my-app-ns
 ```
 
-## Kustomize
+### Kustomize
 
 
 ```
@@ -108,7 +114,7 @@ oc create -f env/argocd-app-kustomize-qa.yaml
 oc create -f env/argocd-app-kustomize-prd.yaml
 ```
 
-## Helm chart
+### Helm chart
 
 ```
 oc create -f env/argocd-app-helm.yaml
